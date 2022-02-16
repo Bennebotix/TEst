@@ -4,7 +4,7 @@
     <title>Run Jump Dodge Play!</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   </head>
-  <body class="bg-black">
+  <body class="bg-black select-none">
   <canvas class="select-none"></canvas>
     <script type="text/javascript">
     const canvas = document.querySelector('canvas');
@@ -35,6 +35,10 @@
         player.draw()
       }
       animate()
+      function ya() {
+        window.loaction = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+      }
+      canvas.addEventListener("click", ya);
     </script>
   </body>
 </html>
