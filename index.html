@@ -38,7 +38,11 @@
       function ya() {
         window.loaction = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
       }
-      canvas.addEventListener("mousedown", function(){window.loaction = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'});
+      canvas.addEventListener("keypress", function(event){
+        if (event.which == 32) {
+          player.y += 10
+        }
+      });
     </script>
   </body>
 </html>
