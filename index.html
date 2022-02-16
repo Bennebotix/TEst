@@ -5,8 +5,8 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   </head>
   <body class="bg-black">
-  <canvas class="select-none></canvas>
-    <script type="text/javascript>
+  <canvas class="select-none"></canvas>
+    <script type="text/javascript">
     const canvas = document.querySelector('canvas');
     const ctx = canvas.getContext('2d')
 
@@ -26,6 +26,7 @@
           ctx.fill()
         }
       }
+      player = new Player(middleX, middleY, 15, 'white')
     </script>
   </body>
 </html>
