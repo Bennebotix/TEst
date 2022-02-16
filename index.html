@@ -9,9 +9,10 @@
     <script type="text/javascript">
     const canvas = document.querySelector('canvas');
     const ctx = canvas.getContext('2d')
-
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
+    const middleX = canvas.width / 2
+    const middleY = canvas.height / 2
       class Player {
         constructor(x, y, radius, color) {
           this.x = x
