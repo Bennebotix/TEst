@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Run Jump Dodge Play!</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  </head>
+  <body class="bg-black">
+  <canvas class="select-none></canvas>
+    <script type="text/javascript>
+    const canvas = document.querySelector('canvas');
+    const ctx = canvas.getContext('2d')
+
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+      class Player {
+        constructor(x, y, radius, color) {
+          this.x = x
+          this.y = y
+          this.radius = radius
+          this.color = color
+        }
+        draw() {
+          ctx.beginPath()
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
+          ctx.fillStyle = this.color
+          ctx.fill()
+        }
+      }
+    </script>
+  </body>
+</html>
