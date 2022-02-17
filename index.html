@@ -8,44 +8,44 @@
     <canvas></canvas>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js" integrity="sha512-eP6ippJojIKXKO8EPLtsUMS+/sAGHGo1UN/38swqZa1ypfcD4I0V/ac5G3VzaHfDaklFmQLEs51lhkkVaqg60Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript">
-    const canvas = document.querySelector('canvas');
-    const ctx = canvas.getContext('2d')
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
-    const middleX = canvas.width / 2
-    const middleY = canvas.height / 2
-      class Player {
-        constructor(x, y, radius, color) {
-          this.x = x
-          this.y = y
-          this.radius = radius
-          this.color = color
+      const canvas = document.querySelector('canvas');
+      const ctx = canvas.getContext('2d')
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
+      const middleX = canvas.width / 2
+      const middleY = canvas.height / 2
+        class Player {
+          constructor(x, y, radius, color) {
+            this.x = x
+            this.y = y
+            this.radius = radius
+            this.color = color
+          }
+          draw() {
+            ctx.beginPath()
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
+            ctx.fillStyle = this.color
+            ctx.fill()
+          }
         }
-        draw() {
-          ctx.beginPath()
-          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
-          ctx.fillStyle = this.color
-          ctx.fill()
+        player = new Player(middleX, middleY, 15, 'red')
+        function animate() {
+          animationId = requestAnimationFrame(animate)
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'
+          ctx.fillRect(0, 0, canvas.width, canvas.height)
+          player.draw()
         }
-      }
-      player = new Player(middleX, middleY, 15, 'red')
-      function animate() {
-        animationId = requestAnimationFrame(animate)
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'
-        ctx.fillRect(0, 0, canvas.width, canvas.height)
-        player.draw()
-      }
-      animate()
-      function ya() {
-        window.loaction = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-      }
-      addEventListener("keypress", function(event){
-        if (event.which == 32) {
-          gsap.to(player, {
-            player.y += 10
-          })
+        animate()
+        function ya() {
+          window.loaction = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
         }
-      });
+        addEventListener("keypress", function(event){
+          if (event.which == 32) {
+            gsap.to(player, {
+              player.y += 10
+            })
+          }
+        });
     </script>
   </body>
 </html>
