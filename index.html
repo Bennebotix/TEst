@@ -17,6 +17,9 @@
       let gravity = true
       let ground = false
       let animationId
+      let enemies = []
+      let spawnEnemiesAnimation
+      let level = 0
       class Player {
         constructor(x, y, radius, color) {
           this.x = x
@@ -54,8 +57,6 @@
         }
       }
       player = new Player(middleX / 2, middleY, 15, 'red')
-      let spawnEnemiesAnimation
-      let level = 0
       function spawnEnemies() {
         const radius = 10
         let x
