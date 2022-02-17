@@ -73,7 +73,7 @@
           x: 10,
           y: canvas.height - Math.random() * (120 - 90) + 90
         }
-        delay(734).then(() => {enemies.push(new Enemy(x, y, radius, color, velocity)})
+        delay(734).then(() => enemies.push(new Enemy(x, y, radius, color, velocity))
         spawnEnemiesAnimation = requestAnimationFrame(spawnEnemies)
       }
       function animate() {
