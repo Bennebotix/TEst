@@ -59,6 +59,9 @@
         }
       }
       player = new Player(middleX / 2, middleY, 15, 'gray')
+      function delay(time) {
+        return new Promise(resolve => setTimeout(resolve, time));
+      }
       function spawnEnemies() {
         const radius = 10
         let x
