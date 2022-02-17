@@ -39,6 +39,8 @@
           if (player.y < (window.innerHeight - 100) & gravity == true) {
             ground = false
             player.y += 1
+          } else {
+            ground = true
           }
         }
         animate()
@@ -48,7 +50,6 @@
         addEventListener("keypress", function(event){
           if (event.which == 32 & ground == true) {
             gravity = false
-            ground = true
             gsap.to(player, {
               y: player.y - 50
             })
