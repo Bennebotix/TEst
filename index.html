@@ -58,6 +58,17 @@
             }, 300)
           }
         });
+      addEventListener("click", function(){
+          if (ground == true) {
+            gravity = false
+            gsap.to(player, {
+              y: player.y - 50
+            })
+            setTimeout(function(){
+              gravity = true
+            }, 300)
+          }
+        });
     </script>
   </body>
 </html>
