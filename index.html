@@ -52,7 +52,7 @@ function spawnEnemies() {
   }
     enemies.push(new Enemy(x, y, radius, color, velocity))
 
-delay(0).then(() => spawnEnemiesAnimation = requestAnimationFrame(spawnEnemies))
+spawnEnemiesAnimation = requestAnimationFrame(spawnEnemies)
 }
         function animate() {
           animationId = requestAnimationFrame(animate)
@@ -66,10 +66,11 @@ delay(0).then(() => spawnEnemiesAnimation = requestAnimationFrame(spawnEnemies))
             ground = true
           }
         }
-        animate()
-        function ya() {
-          window.loaction = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+        function init() {
+          animate()
+          spawnEnemies()
         }
+      init
         canvas.addEventListener("keypress", function(event){
           if (event.which == 32 & ground == true) {
             gravity = false
