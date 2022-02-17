@@ -93,7 +93,7 @@
         spawnEnemies()
       }
       init()
-      canvas.addEventListener("keyup", function(){
+      canvas.addEventListener("keyup", function(event){
         if (event.which == 32) {
           if (ground == true) {
             gravity = false
