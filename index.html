@@ -52,8 +52,8 @@
         }
         update() {
           this.draw()
-          this.x = this.x + this.velocity.x
-          this.y = this.y + this.velocity.y
+          this.x -= this.velocity.x
+          this.y -= this.velocity.y
         }
       }
       player = new Player(middleX / 2, middleY, 15, 'red')
