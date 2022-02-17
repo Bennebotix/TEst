@@ -36,9 +36,7 @@
           ctx.fillRect(0, 0, canvas.width, canvas.height)
           player.draw()
           if (player.y < (window.innerHeight - 25) & gravity == true) {
-            gsap.to(player, {
-              y: player.y + 10
-            })
+            player.y + 1
           }
         }
         animate()
