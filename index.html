@@ -36,11 +36,9 @@
           ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'
           ctx.fillRect(0, 0, canvas.width, canvas.height)
           player.draw()
-          if (player.y < (window.innerHeight - 100)) {
-            if (gravity == true) {
-              ground = false
-              player.y += 1
-          }
+          if (player.y < (window.innerHeight - 100) & gravity == true) {
+            ground = false
+            player.y += 1
         }
         animate()
         function ya() {
@@ -49,10 +47,10 @@
         addEventListener("keypress", function(event){
           if (event.which == 32 & ground == true) {
             gravity = false
+            ground = true
             gsap.to(player, {
               y: player.y - 50
             })
-            ground = true
             setTimeout(function(){
               gravity = true
             }, 300)
