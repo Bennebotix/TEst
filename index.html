@@ -17,80 +17,97 @@
       let gravity = true
       let ground = false
       let animationId
-      let 
-        class Player {
-          constructor(x, y, radius, color) {
-            this.x = x
-            this.y = y
-            this.radius = radius
-            this.color = color
-          }
-          draw() {
-            ctx.beginPath()
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
-            ctx.fillStyle = this.color
-            ctx.fill()
-          }
+      class Player {
+        constructor(x, y, radius, color) {
+          this.x = x
+          this.y = y
+          this.radius = radius
+          this.color = color
         }
-        player = new Player(middleX / 2, middleY, 15, 'red')
+        draw() {
+          ctx.beginPath()
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
+          ctx.fillStyle = this.color
+          ctx.fill()
+        }
+      }
+      class Enemy {
+        constructor(x, y, radius, color, velocity) {
+          this.x = x
+          this.y = y
+
+          this.radius = radius
+          this.color = color
+
+          this.velocity = velocity
+        }
+        draw() {
+          ctx.beginPath()
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
+          ctx.fillStyle = this.color
+          ctx.fill()
+        }
+        update() {
+          this.draw()
+          this.x = this.x + this.velocity.x
+          this.y = this.y + this.velocity.y
+        }
+      }
+      player = new Player(middleX / 2, middleY, 15, 'red')
       let spawnEnemiesAnimation
-let level = 0
-
-function spawnEnemies() {
-    const radius = 10
-    let x
-    let y
-    const enemySpeedMultiplyer = score / 5000000 + 1
-      x = canvas.width
-      y = canvas.height - 100
-    const color = `hsl(${Math.random() * 360}, 50%, 50%`
-  
-  const velocity = {
-    x: 100,
-    y: 0
-    
-  }
-    enemies.push(new Enemy(x, y, radius, color, velocity))
-
-spawnEnemiesAnimation = requestAnimationFrame(spawnEnemies)
-}
-        function animate() {
-          animationId = requestAnimationFrame(animate)
-          ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'
-          ctx.fillRect(0, 0, canvas.width, canvas.height)
-          player.draw()
-          if (player.y < (canvas.height - 100) & gravity == true) {
-            ground = false
-            player.y += 1
-          } else {
-            ground = true
-          }
+      let level = 0
+      function spawnEnemies() {
+        const radius = 10
+        let x
+        let y
+        const enemySpeedMultiplyer = score / 5000000 + 1
+        x = canvas.width
+        y = canvas.height - 100
+        const color = `hsl(${Math.random() * 360}, 50%, 50%`
+        const velocity = {
+          x: 100,
+          y: 0
         }
-        function init() {
-          animate()
-          spawnEnemies()
+        enemies.push(new Enemy(x, y, radius, color, velocity))
+        spawnEnemiesAnimation = requestAnimationFrame(spawnEnemies)
+      }
+      function animate() {
+        animationId = requestAnimationFrame(animate)
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'
+        ctx.fillRect(0, 0, canvas.width, canvas.height)
+        player.draw()
+        if (player.y < (canvas.height - 100) & gravity == true) {
+          ground = false
+          player.y += 1
+        } else {
+          ground = true
         }
-      init
-        canvas.addEventListener("keypress", function(event){
-          if (event.which == 32 & ground == true) {
-            gravity = false
-            gsap.to(player, {
-              y: player.y - 50
-            })
-            setTimeout(function(){
-              gravity = true
-            }, 300)
-          }
-        });
-      canvas.addEventListener("click", function(){
-          if (ground == true) {
-            gravity = false
-            gsap.to(player, {
-              y: player.y - 50
-            })
+      }
+      function init() {
+        animate()
+        spawnEnemies()
+      }
+      init()
+      canvas.addEventListener("keypress", function(event){
+        if (event.which == 32 & ground == true) {
+          gravity = false
+          gsap.to(player, {
+            y: player.y - 50
+          })
+          setTimeout(function(){
             gravity = true
-          }
-        });
+          }, 300)
+        }
+      });
+      canvas.addEventListener("click", function(){
+        if (ground == true) {
+          gravity = false
+          gsap.to(player, {
+            y: player.y - 50
+          })
+          gravity = true
+        }
+      });
     </script>
   </body>
 </html>
