@@ -47,7 +47,7 @@
         function ya() {
           window.loaction = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
         }
-        window.addEventListener("keypress", function(event){
+        canvas.addEventListener("keypress", function(event){
           if (event.which == 32 & ground == true) {
             gravity = false
             gsap.to(player, {
@@ -58,7 +58,7 @@
             }, 300)
           }
         });
-      window.addEventListener("click", function(){
+      canvas.addEventListener("click", function(){
           if (ground == true) {
             gravity = false
             gsap.to(player, {
