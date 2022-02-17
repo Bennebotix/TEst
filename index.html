@@ -83,6 +83,9 @@
         } else {
           ground = true
         }
+        enemies.forEach((enemy) => {
+          enemy.update()
+        })
       }
       function init() {
         animate()
