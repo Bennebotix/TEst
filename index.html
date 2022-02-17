@@ -36,11 +36,10 @@
           ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'
           ctx.fillRect(0, 0, canvas.width, canvas.height)
           player.draw()
-          if (player.y < (window.innerHeight - 100) & gravity == true) {
-            player.y += 1
-            ground = false
-          } else {
-            ground = true
+          if (player.y < (window.innerHeight - 100)) {
+            if (gravity == true) {
+              ground = false
+              player.y += 1
           }
         }
         animate()
@@ -53,6 +52,7 @@
             gsap.to(player, {
               y: player.y - 50
             })
+            ground = true
             setTimeout(function(){
               gravity = true
             }, 300)
