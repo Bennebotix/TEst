@@ -52,8 +52,10 @@
         }
         update() {
           this.draw()
-          this.x -= this.velocity.x
-          this.y -= this.velocity.y
+          gsap.to(this, {
+            x: this.x - this.velocity.x,
+            y: this.y - this.velocity.y
+          })
         }
       }
       player = new Player(middleX / 2, middleY, 15, 'red')
@@ -62,10 +64,10 @@
         let x
         let y
         x = canvas.width
-        y = canvas.height - 10
+        y = canvas.height - 100
         const color = `hsl(${Math.random() * 360}, 50%, 50%`
         const velocity = {
-          x: 100,
+          x: 10,
           y: 0
         }
         enemies.push(new Enemy(x, y, radius, color, velocity))
