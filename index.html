@@ -51,7 +51,9 @@
             gsap.to(player, {
               y: player.y - 50
             })
-            gravity = true
+            setTimeout(function(){
+              gravity = true
+            }, 300)
           }
         });
     </script>
