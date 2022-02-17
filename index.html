@@ -93,15 +93,15 @@
         spawnEnemies()
       }
       init()
-      canvas.addEventListener("keypress", function(event){
-        if (event.which == 32 & ground == true) {
-          gravity = false
-          gsap.to(player, {
-            y: player.y - 50
-          })
-          setTimeout(function(){
+      canvas.addEventListener("keyup", function(){
+        if (event.which == 32) {
+          if (ground == true) {
+            gravity = false
+            gsap.to(player, {
+              y: player.y - 50
+            })
             gravity = true
-          }, 300)
+          }
         }
       });
       canvas.addEventListener("click", function(){
